@@ -440,7 +440,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: accountingservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-accountingservice'
           imagePullPolicy: IfNotPresent
           env:
             - name: OTEL_SERVICE_NAME
@@ -468,7 +468,7 @@ spec:
           - -c
           - until nc -z -v -w30 opentelemetry-demo-kafka 9092; do echo waiting
             for kafka; sleep 2; done;
-          image: sindhura0925/product-catalog:19719163514
+          image: busybox:latest
           name: wait-for-kafka
       volumes:
 ---
@@ -504,7 +504,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: adservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-adservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -570,7 +570,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: cartservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-cartservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -610,7 +610,7 @@ spec:
           - -c
           - until nc -z -v -w30 opentelemetry-demo-valkey 6379; do echo waiting
             for valkey; sleep 2; done;
-          image: sindhura0925/product-catalog:19719163514
+          image: busybox:latest
           name: wait-for-valkey
       volumes:
 ---
@@ -646,7 +646,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: checkoutservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-checkoutservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -696,7 +696,7 @@ spec:
           - -c
           - until nc -z -v -w30 opentelemetry-demo-kafka 9092; do echo waiting
             for kafka; sleep 2; done;
-          image: sindhura0925/product-catalog:19719163514
+          image: busybox:latest
           name: wait-for-kafka
       volumes:
 ---
@@ -732,7 +732,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: currencyservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-currencyservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -794,7 +794,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: emailservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-emailservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -856,7 +856,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: flagd
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-feature/flagd:v0.11.1'
           imagePullPolicy: IfNotPresent
           command:
             - /flagd-build
@@ -890,7 +890,7 @@ spec:
             - name: config-rw
               mountPath: /etc/flagd
         - name: flagdui
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-flagdui'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -923,7 +923,7 @@ spec:
           - sh
           - -c
           - cp /config-ro/demo.flagd.json /config-rw/demo.flagd.json && cat /config-rw/demo.flagd.json
-          image: sindhura0925/product-catalog:19719163514
+          image: busybox
           name: init-config
           volumeMounts:
           - mountPath: /config-ro
@@ -969,7 +969,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: frauddetectionservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-frauddetectionservice'
           imagePullPolicy: IfNotPresent
           env:
             - name: OTEL_SERVICE_NAME
@@ -1001,7 +1001,7 @@ spec:
           - -c
           - until nc -z -v -w30 opentelemetry-demo-kafka 9092; do echo waiting
             for kafka; sleep 2; done;
-          image: sindhura0925/product-catalog:19719163514
+          image: busybox:latest
           name: wait-for-kafka
       volumes:
 ---
@@ -1037,7 +1037,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: frontend
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-frontend'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1127,7 +1127,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: frontendproxy
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-frontendproxy'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1223,7 +1223,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: imageprovider
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-imageprovider'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1285,7 +1285,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: kafka
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-kafka'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1353,7 +1353,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: loadgenerator
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-loadgenerator'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1431,7 +1431,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: paymentservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-paymentservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1499,7 +1499,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: productcatalogservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-productcatalogservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1563,7 +1563,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: quoteservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-quoteservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1629,7 +1629,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: recommendationservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-recommendationservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1696,7 +1696,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: shippingservice
-          image: sindhura0925/product-catalog:19719163514
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-shippingservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1757,7 +1757,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: valkey
-          image: sindhura0925/product-catalog:19719163514
+          image: 'valkey/valkey:7.2-alpine'
           imagePullPolicy: IfNotPresent
           ports:
             
